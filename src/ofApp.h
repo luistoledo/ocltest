@@ -23,5 +23,5 @@ public:
     cl::Kernel kernel;
     std::vector<Particle> particles;
     cl::Buffer particleBuffer;
-    const int numParticles = 10000;
+    const int numParticles = 1000;
 };

@@ -13,6 +13,9 @@ std::string loadKernel(const std::string& filename) {
 }
 
 void ofApp::setup() {
+    //ofSetVerticalSync(true);
+    ofSetFrameRate(30);
+
     setupOpenCL();
 
     // Initialize particles
@@ -85,8 +88,11 @@ void ofApp::moveParticles() {
         queue.enqueueNDRangeKernel(kernel, cl::NullRange, global, cl::NullRange);
         queue.finish();
 
+        int* w;
+        //w[p]
+
         // Read the result back to host
-        queue.enqueueReadBuffer(particleBuffer, CL_TRUE, 0, sizeof(Particle) * numParticles, particles.data());
+        queue.enqueueReadBuffer(particleBuffer, CL_FALSE, 0, sizeof(Particle) * numParticles, particles.data());
 
         // Debug: Print first particle's position to verify movement
         //ofLog() << "First particle position: (" << particles[0].x << ", " << particles[0].y << ")";
