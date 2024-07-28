@@ -1,4 +1,8 @@
+Openframeworks + OpenCL Proof of concept
 
+(no ofx addon, aiming for windows)
+
+-----
 
 Visual Studio project configuration (Just for reference, because the vcxproj file is already configured):
 
